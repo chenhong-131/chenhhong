@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈红 - 全栈开发工程师简历</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== 全局变量与基础重置 - 优雅低饱和色彩体系 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* —— 核心优雅配色：灰紫调为主，低饱和度，和谐统一 —— */
+            --primary-solid: #7b7fb0;
+            --primary-soft: #9d95c4;
+            --primary-light-bg: #f6f5fb;
+            --primary-pale: #edebf6;
+
+            /* 辅助蓝灰调 */
+            --blue-solid: #7d96a8;
+            --blue-soft: #9bb5c4;
+            --blue-light-bg: #f4f7f9;
+            --blue-pale: #eaf0f4;
+
+            /* 辅助灰粉调 */
+            --rose-solid: #a88b96;
+            --rose-soft: #c2a5b0;
+            --rose-light-bg: #faf6f7;
+            --rose-pale: #f3eaed;
+
+            /* 辅助暖灰调 */
+            --warm-solid: #a8947d;
+            --warm-soft: #c2b29b;
+            --warm-light-bg: #f9f6f2;
+            --warm-pale: #f2ece4;
+
+            /* 中性灰调 */
+            --text-main: #2c3040;
+            --text-secondary: #5a5f72;
+            --text-light: #8b8fa3;
+            --border: #dde1ea;
+            --bg-main: #ffffff;
+            --bg-soft: #f7f8fb;
+            --shadow: rgba(120, 125, 160, 0.10);
+            --shadow-hover: rgba(120, 125, 160, 0.18);
+
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-soft);
+            color: var(--text-main);
+            line-height: 1.7;
+            font-size: 14.5px;
+            padding: 36px 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========== 简历主容器 ========== */
+        .resume-container {
+            max-width: 880px;
+            margin: 0 auto;
+            background-color: var(--bg-main);
+            padding: 56px 64px;
+            border-radius: 14px;
+            box-shadow: 0 4px 40px var(--shadow);
+            border: 1px solid rgba(120, 125, 160, 0.07);
+        }
+
+        /* ========== 标题通用样式 ========== */
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+            color: var(--primary-solid);
+        }
+
+        h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin: 34px 0 14px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary-soft);
+            display: inline-block;
+            color: var(--primary-solid);
+            letter-spacing: 0.4px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-solid);
+            margin-bottom: 5px;
+        }
+
+        /* ========== 头部基本信息 ========== */
+        .header-section {
+            text-align: center;
+            margin-bottom: 38px;
+            padding: 28px 20px 22px;
+            background: linear-gradient(180deg, var(--primary-light-bg) 0%, transparent 100%);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-soft), transparent);
+            border-radius: 1px;
+        }
+
+        .basic-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 22px;
+            color: var(--text-secondary);
+            font-size: 14.5px;
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .basic-info span {
+            position: relative;
+        }
+
+        .basic-info span+span::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 3px;
+            background: var(--primary-soft);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .job-intention {
+            margin-top: 10px;
+            font-size: 15.5px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--blue-solid);
+        }
+
+        /* ========== 教育背景 ========== */
+        .education-item {
+            margin-bottom: 10px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            background: var(--primary-light-bg);
+            border-left: 3px solid var(--primary-soft);
+            transition: all var(--transition);
+        }
+
+        .education-item:hover {
+            background: var(--primary-pale);
+            border-left-color: var(--primary-solid);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-main);
+            letter-spacing: 0.2px;
+        }
+
+        .education-detail {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            line-height: 1.75;
+        }
+
+        /* ========== 专业技能 - 柔和卡片 ========== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 14px;
+            margin-top: 6px;
+        }
+
+        .skill-card {
+            padding: 18px 20px;
+            border-radius: 10px;
+            transition: all var(--transition);
+            border-left: 4px solid;
+            background: var(--bg-main);
+            position: relative;
+        }
+
+        .skill-card:nth-child(1) {
+            background: var(--primary-light-bg);
+            border-left-color: var(--primary-soft);
+        }
+
+        .skill-card:nth-child(2) {
+            background: var(--rose-light-bg);
+            border-left-color: var(--rose-soft);
+        }
+
+        .skill-card:nth-child(3) {
+            background: var(--blue-light-bg);
+            border-left-color: var(--blue-soft);
+        }
+
+        .skill-card:nth-child(4) {
+            background: var(--warm-light-bg);
+            border-left-color: var(--warm-soft);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px var(--shadow-hover);
+        }
+
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 7px;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .skill-card:nth-child(1) .skill-title {
+            color: var(--primary-solid);
+        }
+
+        .skill-card:nth-child(2) .skill-title {
+            color: var(--rose-solid);
+        }
+
+        .skill-card:nth-child(3) .skill-title {
+            color: var(--blue-solid);
+        }
+
+        .skill-card:nth-child(4) .skill-title {
+            color: var(--warm-solid);
+        }
+
+        .skill-content {
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            line-height: 1.7;
+        }
+
+        /* ========== 项目经历 ========== */
+        .project-item {
+            margin-bottom: 20px;
+            padding: 20px 22px;
+            border-radius: 10px;
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            bottom: 12px;
+            width: 3px;
+            background: var(--primary-soft);
+            border-radius: 0 3px 3px 0;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+
+        .project-item:hover {
+            border-color: rgba(120, 125, 160, 0.25);
+            box-shadow: 0 3px 16px var(--shadow);
+            background: #fdfdfe;
+        }
+
+        .project-item:hover::before {
+            opacity: 0.7;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .project-duration {
+            color: var(--text-light);
+            font-size: 13.5px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .project-stack {
+            margin: 8px 0 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .stack-tag {
+            color: #fff;
+            padding: 4px 13px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: all var(--transition);
+        }
+
+        /* 标签使用两种柔和渐变交替，和谐统一 */
+        .stack-tag:nth-child(odd) {
+            background: linear-gradient(135deg, #8b8db8, #a59dc4);
+        }
+
+        .stack-tag:nth-child(even) {
+            background: linear-gradient(135deg, #8a9bae, #a3b8c8);
+        }
+
+        .stack-tag:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .project-desc {
+            padding-left: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .project-desc li {
+            margin-bottom: 6px;
+            list-style-type: disc;
+            font-size: 13.5px;
+            position: relative;
+        }
+
+        .project-desc li::marker {
+            color: var(--primary-soft);
+        }
+
+        .project-desc li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== 实践与成果 ========== */
+        .list-section {
+            padding: 16px 20px 16px 36px;
+            color: var(--text-secondary);
+            border-radius: 8px;
+            background: var(--blue-light-bg);
+            border-left: 3px solid var(--blue-soft);
+            line-height: 1.7;
+        }
+
+        .list-section li {
+            margin-bottom: 7px;
+            list-style-type: disc;
+            font-size: 13.5px;
+        }
+
+        .list-section li::marker {
+            color: var(--blue-soft);
+        }
+
+        /* ========== 自我评价 ========== */
+        .self-evaluation {
+            color: var(--text-secondary);
+            text-align: justify;
+            text-indent: 2em;
+            padding: 16px 20px;
+            border-radius: 8px;
+            background: var(--rose-light-bg);
+            border-left: 3px solid var(--rose-soft);
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            line-height: 1.75;
+            transition: all var(--transition);
+        }
+
+        .self-evaluation:hover {
+            background: var(--rose-pale);
+        }
+
+        /* ========== 作品链接 ========== */
+        .links-section {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            color: var(--text-secondary);
+            padding: 16px 20px;
+            border-radius: 8px;
+            background: var(--warm-light-bg);
+            border-left: 3px solid var(--warm-soft);
+            font-size: 13.5px;
+        }
+
+        .links-section a {
+            color: var(--primary-solid);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all var(--transition);
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .links-section a:hover {
+            border-bottom-color: var(--primary-soft);
+            color: var(--primary-solid);
+            opacity: 0.85;
+        }
+
+        /* ========== 软实力提示条 ========== */
+        .soft-skills-note {
+            margin-top: 10px;
+            color: var(--text-light);
+            font-size: 13px;
+            padding-left: 6px;
+            letter-spacing: 0.2px;
+            font-style: italic;
+        }
+
+        /* ========== 响应式适配 ========== */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 6px;
+            }
+
+            .resume-container {
+                padding: 28px 20px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            h2 {
+                font-size: 17px;
+                margin: 28px 0 10px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .basic-info {
+                flex-direction: column;
+                gap: 3px;
+                font-size: 13.5px;
+            }
+
+            .basic-info span+span::before {
+                display: none;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 3px;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 3px;
+            }
+
+            .links-section {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .header-section {
+                padding: 20px 12px 16px;
+            }
+
+            .project-item {
+                padding: 16px 14px;
+            }
+
+            .skill-card {
+                padding: 14px 16px;
+            }
+        }
+
+        /* ========== 打印样式优化 ========== */
+        @media print {
+            body {
+                padding: 0;
+                background-color: #fff;
+                font-size: 13px;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                padding: 32px 40px;
+                max-width: 100%;
+                border-radius: 0;
+                border: none;
+            }
+
+            .skill-card,
+            .education-item,
+            .project-item,
+            .list-section,
+            .self-evaluation,
+            .links-section {
+                break-inside: avoid;
+                background: #fff !important;
+                border: 1px solid #dde1ea !important;
+                border-left: 3px solid #9d95c4 !important;
+                box-shadow: none !important;
+            }
+
+            .stack-tag {
+                color: #2c3040 !important;
+                background: #f0f1f5 !important;
+                border: 1px solid #dde1ea;
+            }
+
+            h2 {
+                border-bottom: 2px solid #7b7fb0 !important;
+                color: #7b7fb0 !important;
+            }
+
+            h3 {
+                color: #7b7fb0 !important;
+            }
+
+            .header-section {
+                background: #fff !important;
+            }
+
+            .header-section::after {
+                background: #9d95c4 !important;
+            }
+
+            .project-item::before {
+                display: none;
+            }
+
+            .skill-card:hover,
+            .project-item:hover,
+            .self-evaluation:hover,
+            .education-item:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- 头部基本信息 -->
+        <header class="header-section">
+            <h1>陈 红</h1>
+            <div class="job-intention">全栈开发工程师 / AI应用开发工程师 / 前端开发工程师</div>
+            <div class="basic-info">
+                <span>性别：女</span>
+                <span>年龄：22岁</span>
+                <span>电话：138XXXX8888</span>
+                <span>邮箱：chenhong@163.com</span>
+            </div>
+        </header>
+
+        <!-- 教育背景 -->
+        <section>
+            <h2>教育背景</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <span>大连东软信息学院 | 计算机科学与技术专业 | 本科</span>
+                    <span>2021.09 - 2025.06</span>
+                </div>
+                <div class="education-detail">
+                    核心课程：数据结构、Java/Python/C多语言开发、数据库原理、计算机网络、OpenHarmony应用开发、互联网应用开发技术、高级网页设计、Web全栈架构设计<br>
+                    GPA：3.6/4.0，专业排名前15%<br>
+                    荣誉奖项：校级二等奖学金（2022-2023）、校级三等奖学金（2023-2024）、校级优秀学生干部、创新创业先进个人
+                </div>
+            </div>
+        </section>
+
+        <!-- 专业技能 -->
+        <section>
+            <h2>专业技能</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-title">前端开发</div>
+                    <div class="skill-content">
+                        精通HTML5/CSS3/JavaScript/TypeScript/ES6+核心语法，熟练运用Vue3+Pinia+ElementPlus/Vant、React等主流框架；掌握Electron桌面端、Uniapp跨端小程序、Nuxt全栈框架开发；深耕数据大屏与数据可视化，熟练使用ECharts/DataV/G6/D3.js/Three.js，精通SVG/Canvas图形绘制与动效实现，可独立完成全场景可视化方案落地。
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">AI应用开发</div>
+                    <div class="skill-content">
+                        熟练运用LangChain框架搭建RAG智能知识库，可独立完成文档解析、向量检索、大模型集成全流程开发；精通CodeBuddy、Trae、Claude Code等AI研发提效工具，具备AI产品原型设计与工程化落地能力，熟悉MCP生态应用。
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">后端与数据库</div>
+                    <div class="skill-content">
+                        熟练使用Spring Boot、MyBatis/MyBatis-Plus开发标准化REST API；掌握Node.js生态Koa2、Express框架开发；熟悉MySQL、Redis数据库设计与性能优化，可使用MySQL Workbench完成全流程数据库建模，具备完整的全栈项目交付能力。
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">移动端与工程化</div>
+                    <div class="skill-content">
+                        具备OpenHarmony鸿蒙原生应用开发能力，熟练使用ArkTS声明式开发范式；掌握Android原生开发基础（Java）；熟练使用Git进行版本控制与团队协作，掌握Docker容器化部署、全链路错误调试与线上部署全流程。
+                    </div>
+                </div>
+            </div>
+            <div class="soft-skills-note">
+                软实力：拥有极强的新技术学习与落地能力，可快速掌握AI工程化、前沿可视化等新兴技术；日常深耕AI辅助研发最佳实践，持续关注行业技术动态，具备优秀的团队协作能力与问题解决能力。
+            </div>
+        </section>
+
+        <!-- 项目经历 -->
+        <section>
+            <h2>项目经历</h2>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>智能知识库问答助手（AI+全栈全流程开发）</h3>
+                    <span class="project-duration">2024.09 - 至今</span>
+                </div>
+                <div class="project-stack">
+                    <span class="stack-tag">LangChain</span>
+                    <span class="stack-tag">Koa2</span>
+                    <span class="stack-tag">MySQL</span>
+                    <span class="stack-tag">Redis</span>
+                    <span class="stack-tag">Vue3</span>
+                    <span class="stack-tag">G6/Three.js</span>
+                </div>
+                <ul class="project-desc">
+                    <li>基于LangChain框架自主搭建RAG智能问答系统，完整实现多格式文档上传、文本切片、向量存储与检索、大模型对话集成全链路功能，大幅提升文档信息查询效率。</li>
+                    <li>基于Node.js Koa2框架开发标准化后端API接口，使用Redis实现高频问答结果缓存，优化接口响应速度达60%以上；基于Vue3搭建轻量化对话交互界面，实现流畅的问答体验。</li>
+                    <li>打造差异化可视化能力：基于G6绘制知识关联图谱，通过Three.js实现3D节点关系可视化，直观呈现文档间的语义关联，提升系统的信息展示维度。</li>
+                    <li>项目前期通过json-server快速搭建Mock API原型，大幅缩短前后端联调周期，提升开发效率。</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>智慧校园数据大屏可视化系统（全栈开发+可视化方案落地）</h3>
+                    <span class="project-duration">2024.07 - 2024.10</span>
+                </div>
+                <div class="project-stack">
+                    <span class="stack-tag">Spring Boot</span>
+                    <span class="stack-tag">MyBatis-Plus</span>
+                    <span class="stack-tag">MySQL</span>
+                    <span class="stack-tag">Redis</span>
+                    <span class="stack-tag">Vue3</span>
+                    <span class="stack-tag">ECharts/DataV</span>
+                </div>
+                <ul class="project-desc">
+                    <li>负责系统全栈开发，基于Spring Boot + MyBatis-Plus搭建后端数据服务，设计并开发多维度数据统计API；使用Redis缓存校园热点统计数据，降低数据库压力，提升大屏数据加载速度。</li>
+                    <li>独立完成智慧校园数据大屏全方案设计与落地，融合多类可视化工具：基于ECharts实现校园实时人流量、能耗等数据的动态折线/柱状图展示；基于DataV实现大屏边框装饰与数字翻牌器动效；基于G6绘制校园设备运行拓扑图；基于D3.js实现自定义校园人员关系网络图，完整覆盖校园管理全场景数据可视化需求。</li>
+                    <li>使用MySQL Workbench完成数据库表结构设计与建模，项目前期通过json-server模拟设备运行数据源，完成前端页面快速开发与效果验证。</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>京东电商平台仿制与跨端小程序开发（前端+跨端开发）</h3>
+                    <span class="project-duration">2024.02 - 2024.04</span>
+                </div>
+                <div class="project-stack">
+                    <span class="stack-tag">Vue3</span>
+                    <span class="stack-tag">TypeScript</span>
+                    <span class="stack-tag">Uniapp</span>
+                    <span class="stack-tag">Nuxt</span>
+                    <span class="stack-tag">Canvas/SVG</span>
+                </div>
+                <ul class="project-desc">
+                    <li>独立完成京东电商平台PC端、移动端网页的高保真仿制，基于Uniapp框架实现微信小程序跨端开发，完成核心业务代码复用，覆盖商品浏览、购物车、订单管理等全核心电商场景。</li>
+                    <li>实现精细化数据可视化与动效设计：基于Canvas绘制商品热度雷达图，直观呈现商品销售数据；基于SVG实现优惠券进度条、商品轮播等交互动效，大幅提升用户交互体验。</li>
+                    <li>基于json-server搭建完整的Mock数据服务，独立完成前后端数据交互模拟，保障项目完整闭环开发。</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>OpenHarmony鸿蒙智能备忘录原生应用开发</h3>
+                    <span class="project-duration">2024.03 - 2024.06</span>
+                </div>
+                <div class="project-stack">
+                    <span class="stack-tag">OpenHarmony</span>
+                    <span class="stack-tag">ArkTS</span>
+                    <span class="stack-tag">Canvas</span>
+                    <span class="stack-tag">DevEco Studio</span>
+                </div>
+                <ul class="project-desc">
+                    <li>基于OpenHarmony系统，采用ArkTS声明式开发范式完成鸿蒙原生智能备忘录应用开发，完整实现笔记增删改查、分类标签管理、定时提醒等核心功能。</li>
+                    <li>深度集成Canvas能力，实现手写涂鸦功能，支持用户为笔记添加手绘示意图、标注等内容，拓展应用使用场景。</li>
+                    <li>项目获评课程优秀设计奖，完整展现了鸿蒙原生应用开发能力与图形交互设计能力。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 其他实践与成果 -->
+        <section>
+            <h2>实践与成果</h2>
+            <ul class="list-section">
+                <li>班级学习委员：牵头组建班级编程学习小组，定期组织技术分享与答疑，推动班级专业课程考试通过率提升至98%。</li>
+                <li>校SOVO大学生创业中心核心成员：参与多个创新项目孵化，牵头组织AI编程系列专题讲座，覆盖校内200+人次。</li>
+                <li>个人开源贡献：在GitHub维护「AI-tools」开源仓库，收录LangChain常用开发代码片段、json-server通用配置模板及MCP生态应用示例，持续更新维护。</li>
+                <li>持续技术深耕：保持每周跟进AI工程化、前端可视化领域前沿技术动态，持续学习并落地行业最佳实践。</li>
+            </ul>
+        </section>
+
+        <!-- 自我评价 -->
+        <section>
+            <h2>自我评价</h2>
+            <p class="self-evaluation">
+                本人为大连东软信息学院计算机科学与技术专业科班出身，具备扎实的全栈开发功底与饱满的技术探索热情。前端领域深耕多年，熟练掌握Vue/React/Uniapp等主流框架，尤其擅长数据大屏与全场景数据可视化方案的设计与落地，可灵活运用各类可视化工具实现定制化需求。AI应用方向，可基于LangChain快速完成RAG智能知识库的搭建与落地，熟练运用各类AI研发工具提升开发效率与项目质量。后端领域熟练掌握Spring Boot+MyBatis+Redis技术栈，同时精通Node.js生态开发与Mock数据方案设计。
+            </p>
+            <p class="self-evaluation">
+                拥有极强的新技术学习能力与落地能力，对前沿技术保持高度敏锐度，乐于探索并实践创新技术方案。具备优秀的团队协作能力、问题排查与解决能力，始终致力于成为懂业务、能落地、有温度的全栈+AI复合型研发工程师。
+            </p>
+        </section>
+
+        <!-- 作品链接 -->
+        <section>
+            <h2>作品与源码链接</h2>
+            <div class="links-section">
+                <span>GitHub：<a href="https://github.com/chenhong" target="_blank">github.com/chenhong</a>（含全量项目源码与配置示例）</span>
+                <span>鸿蒙备忘录演示视频</span>
+                <span>智慧校园数据大屏在线Demo</span>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
